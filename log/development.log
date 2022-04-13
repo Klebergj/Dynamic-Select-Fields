@@ -1,0 +1,1852 @@
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:24:20 +0200
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20220409192039_create_addresses.rb
+
+
+):
+  
+activerecord (6.1.5) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.5) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.5) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.5) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.5) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.5) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.5) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.5) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.5) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.5) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.5) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.5) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.5) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.5) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.5) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.5) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.2) lib/rack/proxy.rb:67:in `call'
+railties (6.1.5) lib/rails/engine.rb:539:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAddresses (20220409192039)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "coutry" varchar, "state" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220409192039"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-09 19:24:31.251489"], ["updated_at", "2022-04-09 19:24:31.251489"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:24:43 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 13.7ms | Allocations: 13294)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 14.2ms | Allocations: 13729)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 13798)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.3ms | Allocations: 22483)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1)):
+    18: 
+    19:   <div class="field">
+    20:     <%= form.label :state %>
+    21:     <%= form.select :state, CS.states.invert, { prompt: "Select a state" }, { class: 'form-select'} %>
+    22:   </div>
+    23: 
+    24:   <div class="actions">
+  
+app/views/addresses/_form.html.erb:21
+app/views/addresses/_form.html.erb:1
+app/views/addresses/new.html.erb:3
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:24:45 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 8.6ms | Allocations: 6307)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 6400)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 6465)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 9541)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1)):
+    18: 
+    19:   <div class="field">
+    20:     <%= form.label :state %>
+    21:     <%= form.select :state, CS.states.invert, { prompt: "Select a state" }, { class: 'form-select'} %>
+    22:   </div>
+    23: 
+    24:   <div class="actions">
+  
+app/views/addresses/_form.html.erb:21
+app/views/addresses/_form.html.erb:1
+app/views/addresses/new.html.erb:3
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:24:46 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 2.8ms | Allocations: 6213)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 6305)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 6370)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 9333)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1)):
+    18: 
+    19:   <div class="field">
+    20:     <%= form.label :state %>
+    21:     <%= form.select :state, CS.states.invert, { prompt: "Select a state" }, { class: 'form-select'} %>
+    22:   </div>
+    23: 
+    24:   <div class="actions">
+  
+app/views/addresses/_form.html.erb:21
+app/views/addresses/_form.html.erb:1
+app/views/addresses/new.html.erb:3
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:25:54 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 5.1ms | Allocations: 5800)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 6143)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 2034dd941d5476d8645c
+Version: webpack 4.46.0
+Time: 480ms
+Built at: 09/04/2022 21:25:55
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-3dd0dc24d9c39bc09227.js    125 KiB  application  [emitted] [immutable]  application
+js/application-3dd0dc24d9c39bc09227.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-3dd0dc24d9c39bc09227.js js/application-3dd0dc24d9c39bc09227.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1251.9ms | Allocations: 26735)
+Completed 200 OK in 1266ms (Views: 1256.6ms | ActiveRecord: 0.0ms | Allocations: 30445)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:38:42 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 4.2ms | Allocations: 8202)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 8658)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 97372678624be8600a19
+Version: webpack 4.46.0
+Time: 605ms
+Built at: 09/04/2022 21:38:43
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-8b999fb5e1e935137209.js    249 KiB  application  [emitted] [immutable]  application
+js/application-8b999fb5e1e935137209.js.map    280 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-8b999fb5e1e935137209.js js/application-8b999fb5e1e935137209.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers/application.js] 216 bytes {application} [built]
+[./app/javascript/controllers/hello_controller.js] 3.23 KiB {application} [built]
+[./app/javascript/controllers/index.js] 335 bytes {application} [built]
+[./app/javascript/packs/application.js] 517 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1298.4ms | Allocations: 50268)
+Completed 200 OK in 1308ms (Views: 1299.7ms | ActiveRecord: 0.3ms | Allocations: 55946)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:40:59 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 0.4ms | Allocations: 112)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 467)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4274)
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 5387)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:41:21 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 0.8ms | Allocations: 112)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 465)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4246)
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 5357)
+
+
+Started GET "/addresses" for ::1 at 2022-04-09 21:41:28 +0200
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:15
+  Rendered addresses/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 982)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 5265)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 0.6ms | Allocations: 5811)
+
+
+Started GET "/" for ::1 at 2022-04-09 21:41:29 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jordykleberg/.rbenv/versions/2.7.3/lib/ruby/gems/2.7.0/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jordykleberg/.rbenv/versions/2.7.3/lib/ruby/gems/2.7.0/gems/railties-6.1.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.3ms | Allocations: 222)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 937)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:41:35 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 0.3ms | Allocations: 111)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 462)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 4241)
+Completed 200 OK in 37ms (Views: 33.8ms | ActiveRecord: 0.0ms | Allocations: 5406)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:41:40 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 0.2ms | Allocations: 39)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 161)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 3771)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 4164)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:42:02 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 0.1ms | Allocations: 39)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 156)
+[Webpacker] Compiling...
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:42:03 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 0.1ms | Allocations: 39)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 0.2ms | Allocations: 156)
+[Webpacker] Compiling...
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:42:03 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 0.2ms | Allocations: 39)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 156)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 1ed3d8d3cfa89e141ef9
+Version: webpack 4.46.0
+Time: 351ms
+Built at: 09/04/2022 21:42:03
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-d125d27a116ef39f493e.js    249 KiB  application  [emitted] [immutable]  application
+js/application-d125d27a116ef39f493e.js.map    280 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-d125d27a116ef39f493e.js js/application-d125d27a116ef39f493e.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers/application.js] 216 bytes {application} [built]
+[./app/javascript/controllers/hello_controller.js] 3.23 KiB {application} [built]
+[./app/javascript/controllers/index.js] 335 bytes {application} [built]
+[./app/javascript/packs/application.js] 517 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 966.8ms | Allocations: 16701)
+Completed 200 OK in 972ms (Views: 967.8ms | ActiveRecord: 0.0ms | Allocations: 17103)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:42:03 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 0.2ms | Allocations: 156)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 3762)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 4154)
+
+
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 1ed3d8d3cfa89e141ef9
+Version: webpack 4.46.0
+Time: 276ms
+Built at: 09/04/2022 21:42:04
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-d125d27a116ef39f493e.js    249 KiB  application  [emitted] [immutable]  application
+js/application-d125d27a116ef39f493e.js.map    280 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-d125d27a116ef39f493e.js js/application-d125d27a116ef39f493e.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers/application.js] 216 bytes {application} [built]
+[./app/javascript/controllers/hello_controller.js] 3.23 KiB {application} [built]
+[./app/javascript/controllers/index.js] 335 bytes {application} [built]
+[./app/javascript/packs/application.js] 517 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 941.7ms | Allocations: 29331)
+Completed 200 OK in 942ms (Views: 941.9ms | ActiveRecord: 0.0ms | Allocations: 29723)
+
+
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 1ed3d8d3cfa89e141ef9
+Version: webpack 4.46.0
+Time: 283ms
+Built at: 09/04/2022 21:42:04
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-d125d27a116ef39f493e.js    249 KiB  application  [emitted] [immutable]  application
+js/application-d125d27a116ef39f493e.js.map    280 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-d125d27a116ef39f493e.js js/application-d125d27a116ef39f493e.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers/application.js] 216 bytes {application} [built]
+[./app/javascript/controllers/hello_controller.js] 3.23 KiB {application} [built]
+[./app/javascript/controllers/index.js] 335 bytes {application} [built]
+[./app/javascript/packs/application.js] 517 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 931.4ms | Allocations: 25721)
+Completed 200 OK in 932ms (Views: 931.7ms | ActiveRecord: 0.0ms | Allocations: 26122)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:42:48 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 6.9ms | Allocations: 5725)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 6068)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: fb93b0e70c1591f53580
+Version: webpack 4.46.0
+Time: 328ms
+Built at: 09/04/2022 21:42:49
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-f1b87196b58536cc3d2b.js    249 KiB  application  [emitted] [immutable]  application
+js/application-f1b87196b58536cc3d2b.js.map    280 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-f1b87196b58536cc3d2b.js js/application-f1b87196b58536cc3d2b.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers/application.js] 216 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.23 KiB {application} [built]
+[./app/javascript/controllers/index.js] 341 bytes {application} [built]
+[./app/javascript/packs/application.js] 517 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 941.9ms | Allocations: 11055)
+Completed 200 OK in 954ms (Views: 949.8ms | ActiveRecord: 0.0ms | Allocations: 12158)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:43:09 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 8.9ms | Allocations: 5428)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 5536)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: befdfe841a29298becb8
+Version: webpack 4.46.0
+Time: 330ms
+Built at: 09/04/2022 21:43:09
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0f98d53796a989d77a35.js    249 KiB  application  [emitted] [immutable]  application
+js/application-0f98d53796a989d77a35.js.map    280 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0f98d53796a989d77a35.js js/application-0f98d53796a989d77a35.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers/application.js] 216 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [built]
+[./app/javascript/controllers/index.js] 341 bytes {application} [built]
+[./app/javascript/packs/application.js] 517 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 951.7ms | Allocations: 10549)
+Completed 200 OK in 955ms (Views: 952.8ms | ActiveRecord: 0.0ms | Allocations: 10945)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:44:37 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 4.1ms | Allocations: 5514)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 5855)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 9637)
+Completed 200 OK in 19ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 10741)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:47:35 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 9.5ms | Allocations: 5210)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 5318)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 4746b683a206561efc22
+Version: webpack 4.46.0
+Time: 331ms
+Built at: 09/04/2022 21:47:36
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-a8581a19ca80a8373ea3.js    249 KiB  application  [emitted] [immutable]  application
+js/application-a8581a19ca80a8373ea3.js.map    280 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-a8581a19ca80a8373ea3.js js/application-a8581a19ca80a8373ea3.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers/application.js] 216 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [built]
+[./app/javascript/controllers/index.js] 341 bytes {application} [built]
+[./app/javascript/packs/application.js] 517 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 979.0ms | Allocations: 10135)
+Completed 200 OK in 981ms (Views: 979.8ms | Allocations: 10529)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 21:48:00 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 3.6ms | Allocations: 8214)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 8670)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 18749)
+Completed 200 OK in 20ms (Views: 14.2ms | ActiveRecord: 0.3ms | Allocations: 24427)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 21:51:45 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.2ms | Allocations: 99)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 4746b683a206561efc22
+Version: webpack 4.46.0
+Time: 274ms
+Built at: 09/04/2022 21:51:46
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-a8581a19ca80a8373ea3.js    249 KiB  application  [emitted] [immutable]  application
+js/application-a8581a19ca80a8373ea3.js.map    280 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-a8581a19ca80a8373ea3.js js/application-a8581a19ca80a8373ea3.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers/application.js] 216 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [built]
+[./app/javascript/controllers/index.js] 341 bytes {application} [built]
+[./app/javascript/packs/application.js] 517 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 864.3ms | Allocations: 5136)
+Completed 200 OK in 866ms (Views: 865.4ms | Allocations: 6289)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 21:51:57 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.3ms | Allocations: 107)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3899)
+Completed 200 OK in 10ms (Views: 9.3ms | Allocations: 4987)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 21:52:13 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.5ms | Allocations: 37)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 3658)
+Completed 200 OK in 20ms (Views: 18.1ms | Allocations: 4042)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 21:52:14 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.2ms | Allocations: 37)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 3657)
+Completed 200 OK in 19ms (Views: 17.5ms | Allocations: 4039)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 21:52:14 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.1ms | Allocations: 37)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 3657)
+Completed 200 OK in 13ms (Views: 12.1ms | Allocations: 4040)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 21:52:14 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.1ms | Allocations: 37)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 3668)
+Completed 200 OK in 12ms (Views: 11.2ms | Allocations: 4048)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 21:53:36 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 1.6ms | Allocations: 110)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 4746b683a206561efc22
+Version: webpack 4.46.0
+Time: 266ms
+Built at: 09/04/2022 21:53:37
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-a8581a19ca80a8373ea3.js    249 KiB  application  [emitted] [immutable]  application
+js/application-a8581a19ca80a8373ea3.js.map    280 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-a8581a19ca80a8373ea3.js js/application-a8581a19ca80a8373ea3.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers/application.js] 216 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [built]
+[./app/javascript/controllers/index.js] 341 bytes {application} [built]
+[./app/javascript/packs/application.js] 517 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 876.6ms | Allocations: 5138)
+Completed 200 OK in 884ms (Views: 881.6ms | Allocations: 6227)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 21:56:30 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.4ms | Allocations: 216)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 10427)
+Completed 200 OK in 19ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 13131)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:02:04 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.3ms | Allocations: 216)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 891df4cf56d9e32c964b
+Version: webpack 4.46.0
+Time: 405ms
+Built at: 09/04/2022 22:02:05
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-07c705afbf5a2dd34ee5.js    261 KiB  application  [emitted] [immutable]  application
+js/application-07c705afbf5a2dd34ee5.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-07c705afbf5a2dd34ee5.js js/application-07c705afbf5a2dd34ee5.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.6 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 539 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1071.0ms | Allocations: 11782)
+Completed 200 OK in 1076ms (Views: 1072.4ms | ActiveRecord: 0.0ms | Allocations: 14345)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:02:38 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.3ms | Allocations: 37)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: cc4cbdb50062e8dfdfc9
+Version: webpack 4.46.0
+Time: 302ms
+Built at: 09/04/2022 22:02:39
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b2eb62fa518d909cefe6.js    261 KiB  application  [emitted] [immutable]  application
+js/application-b2eb62fa518d909cefe6.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-b2eb62fa518d909cefe6.js js/application-b2eb62fa518d909cefe6.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.6 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 543 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 923.5ms | Allocations: 4882)
+Completed 200 OK in 926ms (Views: 924.9ms | ActiveRecord: 0.0ms | Allocations: 5266)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:02:39 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.1ms | Allocations: 37)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3668)
+Completed 200 OK in 13ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 4047)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:05:39 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.8ms | Allocations: 109)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 388be39bd3bbcb6459e5
+Version: webpack 4.46.0
+Time: 343ms
+Built at: 09/04/2022 22:05:40
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0f075d42fc6d70aeffe8.js    261 KiB  application  [emitted] [immutable]  application
+js/application-0f075d42fc6d70aeffe8.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0f075d42fc6d70aeffe8.js js/application-0f075d42fc6d70aeffe8.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.56 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 952.5ms | Allocations: 5124)
+Completed 200 OK in 960ms (Views: 958.6ms | ActiveRecord: 0.0ms | Allocations: 6218)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:07:12 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 1.4ms | Allocations: 105)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 3909)
+Completed 200 OK in 19ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 5001)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:07:56 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.9ms | Allocations: 106)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 3898)
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 0.0ms | Allocations: 4981)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:09:17 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.6ms | Allocations: 105)
+[Webpacker] Compiling...
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:09:17 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.0ms | Allocations: 37)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: e9ab84e46d89d1df387b
+Version: webpack 4.46.0
+Time: 342ms
+Built at: 09/04/2022 22:09:18
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-4705ccb106d0b3ee3eb8.js    261 KiB  application  [emitted] [immutable]  application
+js/application-4705ccb106d0b3ee3eb8.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-4705ccb106d0b3ee3eb8.js js/application-4705ccb106d0b3ee3eb8.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.34 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 979.3ms | Allocations: 10841)
+Completed 200 OK in 990ms (Views: 985.6ms | Allocations: 11923)
+
+
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: e9ab84e46d89d1df387b
+Version: webpack 4.46.0
+Time: 288ms
+Built at: 09/04/2022 22:09:18
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-4705ccb106d0b3ee3eb8.js    261 KiB  application  [emitted] [immutable]  application
+js/application-4705ccb106d0b3ee3eb8.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-4705ccb106d0b3ee3eb8.js js/application-4705ccb106d0b3ee3eb8.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.34 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 902.6ms | Allocations: 7159)
+Completed 200 OK in 903ms (Views: 903.0ms | Allocations: 7539)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:09:57 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.2ms | Allocations: 37)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 9c3a7cd6502b5bc1a473
+Version: webpack 4.46.0
+Time: 378ms
+Built at: 09/04/2022 22:09:58
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-8cde81335335e8e63ac0.js    261 KiB  application  [emitted] [immutable]  application
+js/application-8cde81335335e8e63ac0.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-8cde81335335e8e63ac0.js js/application-8cde81335335e8e63ac0.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.47 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1151.5ms | Allocations: 4880)
+Completed 200 OK in 1154ms (Views: 1152.4ms | Allocations: 5259)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:12:18 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 1.1ms | Allocations: 111)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 1d0b9e64738ebe453ab8
+Version: webpack 4.46.0
+Time: 385ms
+Built at: 09/04/2022 22:12:19
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-db1128398209a9260829.js    261 KiB  application  [emitted] [immutable]  application
+js/application-db1128398209a9260829.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-db1128398209a9260829.js js/application-db1128398209a9260829.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.57 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1174.5ms | Allocations: 5128)
+Completed 200 OK in 1184ms (Views: 1180.2ms | Allocations: 6215)
+
+
+Started GET "/stimulus_test" for ::1 at 2022-04-09 22:13:12 +0200
+Processing by AddressesController#stimulus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/stimulus.html.erb within layouts/application
+  Rendered addresses/stimulus.html.erb within layouts/application (Duration: 0.2ms | Allocations: 37)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: f3beebe3afd123974982
+Version: webpack 4.46.0
+Time: 337ms
+Built at: 09/04/2022 22:13:13
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9cb87b35835044e3620a.js    261 KiB  application  [emitted] [immutable]  application
+js/application-9cb87b35835044e3620a.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9cb87b35835044e3620a.js js/application-9cb87b35835044e3620a.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.21 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 950.6ms | Allocations: 4877)
+Completed 200 OK in 953ms (Views: 951.7ms | Allocations: 5256)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 22:15:36 +0200
+Processing by AddressesController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/addresses_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 7.9ms | Allocations: 8193)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 8541)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 12273)
+Completed 200 OK in 51ms (Views: 20.5ms | ActiveRecord: 0.8ms | Allocations: 18991)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 22:16:12 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 10.4ms | Allocations: 5436)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 5544)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: db1f4138d1e7d10df5da
+Version: webpack 4.46.0
+Time: 343ms
+Built at: 09/04/2022 22:16:13
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-2666cca33b15341757e9.js    261 KiB  application  [emitted] [immutable]  application
+js/application-2666cca33b15341757e9.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-2666cca33b15341757e9.js js/application-2666cca33b15341757e9.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.23 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 980.7ms | Allocations: 10382)
+Completed 200 OK in 983ms (Views: 981.9ms | ActiveRecord: 0.0ms | Allocations: 10777)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 22:16:21 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 11.8ms | Allocations: 5204)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 12.4ms | Allocations: 5311)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 7a3ff6875d0830007e39
+Version: webpack 4.46.0
+Time: 336ms
+Built at: 09/04/2022 22:16:22
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-fc1c432c03462f534776.js    261 KiB  application  [emitted] [immutable]  application
+js/application-fc1c432c03462f534776.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-fc1c432c03462f534776.js js/application-fc1c432c03462f534776.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.24 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 963.5ms | Allocations: 10152)
+Completed 200 OK in 967ms (Views: 964.8ms | ActiveRecord: 0.0ms | Allocations: 10550)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 22:43:48 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 5.5ms | Allocations: 9300)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 9735)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 9804)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.3ms | Allocations: 15789)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1)):
+    18: 
+    19:     <div class="field">
+    20:       <%= form.label :state %>
+    21:       <%= form.select :state, CS.states.invert, { prompt: "Select a state" }, { class: 'form-select'} %>
+    22:     </div>
+    23:   </div>
+    24: 
+  
+app/views/addresses/_form.html.erb:21
+app/views/addresses/_form.html.erb:1
+app/views/addresses/new.html.erb:3
+Started GET "/addresses/new" for ::1 at 2022-04-09 22:44:12 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 10.9ms | Allocations: 10448)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 13.5ms | Allocations: 10791)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 2839c5b02884f2965fe7
+Version: webpack 4.46.0
+Time: 490ms
+Built at: 09/04/2022 22:44:13
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-d6007f06ce77386d4fc5.js    292 KiB  application  [emitted] [immutable]  application
+js/application-d6007f06ce77386d4fc5.js.map    310 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-d6007f06ce77386d4fc5.js js/application-d6007f06ce77386d4fc5.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.42 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1257.5ms | Allocations: 62263)
+Completed 200 OK in 1268ms (Views: 1264.6ms | ActiveRecord: 0.0ms | Allocations: 63502)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 22:44:18 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 6.4ms | Allocations: 10523)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 10866)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 14692)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 15807)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 22:48:58 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 7.6ms | Allocations: 10310)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 10651)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: f6108e0cddc2be137b9d
+Version: webpack 4.46.0
+Time: 353ms
+Built at: 09/04/2022 22:48:58
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0cd5949aac996dcccb60.js    293 KiB  application  [emitted] [immutable]  application
+js/application-0cd5949aac996dcccb60.js.map    310 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0cd5949aac996dcccb60.js js/application-0cd5949aac996dcccb60.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.49 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 988.2ms | Allocations: 15683)
+Completed 200 OK in 1000ms (Views: 995.3ms | ActiveRecord: 0.0ms | Allocations: 16786)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 22:49:54 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 10.0ms | Allocations: 9775)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 9883)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 69c4c44202aa8ad1454a
+Version: webpack 4.46.0
+Time: 357ms
+Built at: 09/04/2022 22:49:55
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-84028fcb07a56f360304.js    293 KiB  application  [emitted] [immutable]  application
+js/application-84028fcb07a56f360304.js.map    310 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-84028fcb07a56f360304.js js/application-84028fcb07a56f360304.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.49 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 981.1ms | Allocations: 14732)
+Completed 200 OK in 984ms (Views: 982.3ms | Allocations: 15126)
+
+
+Started GET "/addresses/states?target=address_state&country=AD" for ::1 at 2022-04-09 22:49:57 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AD"}
+Completed 500 Internal Server Error in 179ms (Allocations: 2028525)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AG" for ::1 at 2022-04-09 22:52:58 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AG"}
+Completed 500 Internal Server Error in 178ms (Allocations: 2028364)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:03:57 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 10.0ms | Allocations: 9995)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 10102)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 6f0fce18248d9967781c
+Version: webpack 4.46.0
+Time: 361ms
+Built at: 09/04/2022 23:03:58
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b487f7ffddf4e8cace94.js    293 KiB  application  [emitted] [immutable]  application
+js/application-b487f7ffddf4e8cace94.js.map    310 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-b487f7ffddf4e8cace94.js js/application-b487f7ffddf4e8cace94.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.49 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1000.3ms | Allocations: 14963)
+Completed 200 OK in 1003ms (Views: 1001.7ms | Allocations: 15356)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:04:10 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 15.5ms | Allocations: 9769)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 16.1ms | Allocations: 9876)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 69c4c44202aa8ad1454a
+Version: webpack 4.46.0
+Time: 295ms
+Built at: 09/04/2022 23:04:11
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-84028fcb07a56f360304.js    293 KiB  application  [emitted] [immutable]  application
+js/application-84028fcb07a56f360304.js.map    310 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-84028fcb07a56f360304.js js/application-84028fcb07a56f360304.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.49 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 915.7ms | Allocations: 14737)
+Completed 200 OK in 920ms (Views: 916.9ms | Allocations: 15131)
+
+
+Started GET "/addresses/states?target=address_state&country=AD" for ::1 at 2022-04-09 23:04:13 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AD"}
+Completed 500 Internal Server Error in 2ms (Allocations: 799)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:04:28 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 14.8ms | Allocations: 9995)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 10102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 13739)
+Completed 200 OK in 22ms (Views: 21.0ms | Allocations: 14132)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:04:30 +0200
+Processing by AddressesController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 9.9ms | Allocations: 9769)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 10010)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 13636)
+Completed 200 OK in 19ms (Views: 17.4ms | Allocations: 14184)
+
+
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:04:33 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 173ms (Allocations: 2028034)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:08:06 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 3ms (Allocations: 818)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:10:08 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 1ms (Allocations: 857)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AL" for ::1 at 2022-04-09 23:10:12 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AL"}
+Completed 500 Internal Server Error in 173ms (Allocations: 2028743)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:13:06 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 6.4ms | Allocations: 12791)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 13247)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 2af0ccd340db89c92e4c
+Version: webpack 4.46.0
+Time: 365ms
+Built at: 09/04/2022 23:13:07
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-c7a57021fbcdfd01b54e.js    293 KiB  application  [emitted] [immutable]  application
+js/application-c7a57021fbcdfd01b54e.js.map    311 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-c7a57021fbcdfd01b54e.js js/application-c7a57021fbcdfd01b54e.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.49 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 583 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve '@hotwired/turbo-rails' in '/Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 9:0-46 10:15-20
+
+  Rendered layout layouts/application.html.erb (Duration: 1156.9ms | Allocations: 26853)
+Completed 200 OK in 1169ms (Views: 1162.2ms | ActiveRecord: 0.3ms | Allocations: 32949)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:13:38 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 13.7ms | Allocations: 10013)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 14.3ms | Allocations: 10121)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 69c4c44202aa8ad1454a
+Version: webpack 4.46.0
+Time: 313ms
+Built at: 09/04/2022 23:13:39
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-84028fcb07a56f360304.js    293 KiB  application  [emitted] [immutable]  application
+js/application-84028fcb07a56f360304.js.map    310 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-84028fcb07a56f360304.js js/application-84028fcb07a56f360304.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.49 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 958.5ms | Allocations: 14972)
+Completed 200 OK in 963ms (Views: 959.7ms | ActiveRecord: 0.0ms | Allocations: 15376)
+
+
+Started GET "/addresses/states?target=address_state&country=AE" for ::1 at 2022-04-09 23:14:07 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AE"}
+Completed 500 Internal Server Error in 181ms (ActiveRecord: 0.0ms | Allocations: 2028587)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:14:19 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 871)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:14:20 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 820)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:14:20 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 818)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:14:20 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 818)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:14:20 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 818)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:14:20 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 818)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:27:32 +0200
+Processing by AddressesController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/addresses_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 4.6ms | Allocations: 10210)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 10322)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 14058)
+Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 0.2ms | Allocations: 17635)
+
+
+Started GET "/addresses/states?target=address_state&country=AM" for ::1 at 2022-04-09 23:27:36 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AM"}
+Completed 500 Internal Server Error in 174ms (ActiveRecord: 0.0ms | Allocations: 2028349)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/addresses_controller.rb:68:in `format'
+app/controllers/addresses_controller.rb:68:in `states'
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:28:29 +0200
+Processing by AddressesController#new as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/addresses_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 7.4ms | Allocations: 10324)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 10432)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 14050)
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 0.5ms | Allocations: 17839)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:28:39 +0200
+Processing by AddressesController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/addresses_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 4.7ms | Allocations: 9860)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 9968)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 13594)
+Completed 200 OK in 15ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 17330)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:36:10 +0200
+Processing by AddressesController#new as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/addresses_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 4.5ms | Allocations: 10086)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 10194)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 2c26eac6e5fde5606241
+Version: webpack 4.46.0
+Time: 400ms
+Built at: 09/04/2022 23:36:11
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-79e5f3739400d81b1b72.js    261 KiB  application  [emitted] [immutable]  application
+js/application-79e5f3739400d81b1b72.js.map    283 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-79e5f3739400d81b1b72.js js/application-79e5f3739400d81b1b72.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.49 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 9 hidden modules
+
+ERROR in ./app/javascript/controllers/country_controller.js
+Module not found: Error: Can't resolve 'rails/request.js' in '/Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/app/javascript/controllers'
+ @ ./app/javascript/controllers/country_controller.js 22:0-39 40:6-9
+ @ ./app/javascript/controllers sync _controller\.js$
+ @ ./app/javascript/controllers/index.js
+ @ ./app/javascript/packs/application.js
+
+  Rendered layout layouts/application.html.erb (Duration: 1178.2ms | Allocations: 14956)
+Completed 200 OK in 1184ms (Views: 1178.8ms | ActiveRecord: 0.2ms | Allocations: 18320)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:36:17 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 10.8ms | Allocations: 9769)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 9876)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 69c4c44202aa8ad1454a
+Version: webpack 4.46.0
+Time: 295ms
+Built at: 09/04/2022 23:36:18
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-84028fcb07a56f360304.js    293 KiB  application  [emitted] [immutable]  application
+js/application-84028fcb07a56f360304.js.map    310 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-84028fcb07a56f360304.js js/application-84028fcb07a56f360304.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.49 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 915.8ms | Allocations: 14725)
+Completed 200 OK in 922ms (Views: 916.9ms | ActiveRecord: 0.0ms | Allocations: 15119)
+
+
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:36:23 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 818)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:38:34 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1832)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:38:39 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 868)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:40:54 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 6.6ms | Allocations: 12792)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 13461)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 69c4c44202aa8ad1454a
+Version: webpack 4.46.0
+Time: 300ms
+Built at: 09/04/2022 23:40:55
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-84028fcb07a56f360304.js    293 KiB  application  [emitted] [immutable]  application
+js/application-84028fcb07a56f360304.js.map    310 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-84028fcb07a56f360304.js js/application-84028fcb07a56f360304.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.49 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 991.2ms | Allocations: 27205)
+Completed 200 OK in 1000ms (Views: 992.8ms | ActiveRecord: 0.3ms | Allocations: 33339)
+
+
+Started GET "/addresses/states?target=address_state&country=AE" for ::1 at 2022-04-09 23:41:01 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AE"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 867)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:41:03 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 871)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:45:40 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 5.7ms | Allocations: 12791)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 13247)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 69c4c44202aa8ad1454a
+Version: webpack 4.46.0
+Time: 347ms
+Built at: 09/04/2022 23:45:41
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-84028fcb07a56f360304.js    293 KiB  application  [emitted] [immutable]  application
+js/application-84028fcb07a56f360304.js.map    310 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-84028fcb07a56f360304.js js/application-84028fcb07a56f360304.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.49 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1054.0ms | Allocations: 26961)
+Completed 200 OK in 1062ms (Views: 1055.5ms | ActiveRecord: 0.3ms | Allocations: 32639)
+
+
+Started GET "/addresses/states?target=address_state&country=AL" for ::1 at 2022-04-09 23:45:44 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AL"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 897)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:45:45 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 871)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:45:46 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 820)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:45:46 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 820)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/new" for ::1 at 2022-04-09 23:46:57 +0200
+Processing by AddressesController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/addresses_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 5.6ms | Allocations: 10209)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 10321)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 14056)
+Completed 200 OK in 17ms (Views: 11.1ms | ActiveRecord: 0.6ms | Allocations: 18016)
+
+
+Started GET "/addresses/states?target=address_state&country=AI" for ::1 at 2022-04-09 23:47:00 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AI"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 581)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/addresses_controller.rb:68:in `format'
+app/controllers/addresses_controller.rb:68:in `states'
+Started GET "/addresses/new" for ::1 at 2022-04-11 09:35:17 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 6.0ms | Allocations: 12791)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 13247)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 9def54f44e769b865e2b
+Version: webpack 4.46.0
+Time: 440ms
+Built at: 11/04/2022 09:35:18
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-7db13c926d5b81f3a597.js    293 KiB  application  [emitted] [immutable]  application
+js/application-7db13c926d5b81f3a597.js.map    311 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-7db13c926d5b81f3a597.js js/application-7db13c926d5b81f3a597.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.52 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 514 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 15 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1322.0ms | Allocations: 27010)
+Completed 200 OK in 1330ms (Views: 1323.4ms | ActiveRecord: 0.2ms | Allocations: 32688)
+
+
+Started GET "/addresses/states?target=address_state&country=AL" for ::1 at 2022-04-11 09:35:28 +0200
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AL"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 899)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/states?target=address_state&country=AU" for ::1 at 2022-04-11 09:38:46 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#states as HTML
+  Parameters: {"target"=>"address_state", "country"=>"AU"}
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 0.0ms | Allocations: 2051654)
+
+
+  
+NoMethodError (To respond to a custom format, register it as a MIME type first: https://guides.rubyonrails.org/action_controller_overview.html#restful-downloads. If you meant to respond to a variant like :tablet or :phone, not a custom format, be sure to nest your variant response within a format response: format.html { |html| html.tablet { ... } }):
+  
+app/controllers/addresses_controller.rb:66:in `block in states'
+app/controllers/addresses_controller.rb:65:in `states'
+Started GET "/addresses/new" for ::1 at 2022-04-11 09:50:57 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 6.7ms | Allocations: 12791)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 13247)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 25758)
+Completed 200 OK in 41ms (Views: 32.1ms | ActiveRecord: 0.3ms | Allocations: 31912)
+
+
+Started GET "/addresses/states?target=address_state&country=AE" for ::1 at 2022-04-11 09:51:01 +0200
+Processing by AddressesController#states as TURBO_STREAM
+  Parameters: {"target"=>"address_state", "country"=>"AE"}
+  Rendering addresses/states.turbo_stream.erb
+  Rendered addresses/states.turbo_stream.erb (Duration: 21.0ms | Allocations: 4382)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms | Allocations: 5799)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `turbo_stream' for #<ActionView::Base:0x00000000008ed0>):
+    1: <%= turbo_stream.update @target do %>
+    2:   <%= options_for_select @states   %>
+    3: <% end %>
+  
+app/views/addresses/states.turbo_stream.erb:1
+Started GET "/addresses/new" for ::1 at 2022-04-11 09:59:54 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 7.1ms | Allocations: 12792)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 13248)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jordykleberg/Documents/GoRails-Projects/DynamicSelectFields/public/packs
+[Webpacker] Hash: 3f4608f1addef6348ebe
+Version: webpack 4.46.0
+Time: 904ms
+Built at: 11/04/2022 09:59:56
+                                                   Asset       Size               Chunks                         Chunk Names
+                  js/application-b4ef9f3eac2de6ce519a.js    493 KiB          application  [emitted] [immutable]  application
+              js/application-b4ef9f3eac2de6ce519a.js.map    541 KiB          application  [emitted] [dev]        application
+    js/vendors~actioncable-c592403c886988a78232.chunk.js     43 KiB  vendors~actioncable  [emitted] [immutable]  vendors~actioncable
+js/vendors~actioncable-c592403c886988a78232.chunk.js.map     37 KiB  vendors~actioncable  [emitted] [dev]        vendors~actioncable
+                                           manifest.json  554 bytes                       [emitted]              
+Entrypoint application = js/application-b4ef9f3eac2de6ce519a.js js/application-b4ef9f3eac2de6ce519a.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/controllers sync recursive _controller\.js$] ./app/javascript/controllers sync _controller\.js$ 214 bytes {application} [built]
+[./app/javascript/controllers/country_controller.js] 3.52 KiB {application} [optional] [built]
+[./app/javascript/controllers/hello_controller.js] 3.46 KiB {application} [optional] [built]
+[./app/javascript/controllers/index.js] 396 bytes {application} [built]
+[./app/javascript/packs/application.js] 546 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 29 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 1697.8ms | Allocations: 73821)
+Completed 200 OK in 1713ms (Views: 1701.9ms | ActiveRecord: 0.3ms | Allocations: 80092)
+
+
+Started GET "/addresses/new" for ::1 at 2022-04-11 09:59:58 +0200
+Processing by AddressesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (Duration: 11.8ms | Allocations: 10013)
+  Rendered addresses/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 10121)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 13784)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.0ms | Allocations: 14193)
+
+
+Started GET "/addresses/states?target=address_state&country=AE" for ::1 at 2022-04-11 10:00:00 +0200
+Processing by AddressesController#states as TURBO_STREAM
+  Parameters: {"target"=>"address_state", "country"=>"AE"}
+  Rendering addresses/states.turbo_stream.erb
+  Rendered addresses/states.turbo_stream.erb (Duration: 4.0ms | Allocations: 792)
+Completed 200 OK in 18ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 2228)
+
+
+Started GET "/addresses/states?target=address_state&country=AS" for ::1 at 2022-04-11 10:00:04 +0200
+Processing by AddressesController#states as TURBO_STREAM
+  Parameters: {"target"=>"address_state", "country"=>"AS"}
+  Rendering addresses/states.turbo_stream.erb
+  Rendered addresses/states.turbo_stream.erb (Duration: 0.1ms | Allocations: 156)
+Completed 200 OK in 183ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 2028136)
+
+
+Started GET "/addresses/states?target=address_state&country=NL" for ::1 at 2022-04-11 10:19:12 +0200
+Processing by AddressesController#states as TURBO_STREAM
+  Parameters: {"target"=>"address_state", "country"=>"NL"}
+  Rendering addresses/states.turbo_stream.erb
+  Rendered addresses/states.turbo_stream.erb (Duration: 0.1ms | Allocations: 267)
+Completed 200 OK in 181ms (Views: 0.4ms | Allocations: 2046270)
+
+
